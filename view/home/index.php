@@ -2,56 +2,65 @@
 include('./view/layout/header.php');
 ?>
 
+<!-- Header -->
+    <header class="intro-header">
+      <div class="container">
+        <div class="intro-message">
+          <h1 class="animated swing">AkuResep.com</h1>
+          <h3>Resep nusantara dan mancanegara</h3>
+          <hr class="intro-divider">
+          <ul class="list-inline intro-kategori">
+            <li class="list-inline-item list-kategori">
+              <a href="statics/#"><span class="network-name">Makanan</span></a>
+            </li>
+            <li class="list-inline-item list-kategori">
+              <a href="statics/#"><span class="network-name">Minuman</span></a>
+            </li>
+            <li class="list-inline-item list-kategori">
+              <a href="statics/#"><span class="network-name">Kue</span></a>
+            </li>
+            <li class="list-inline-item list-kategori">
+              <a href="statics/#"><span class="network-name">Cemilan</span></a>
+            </li>
+            <li class="list-inline-item list-kategori">
+              <a href="statics/#"><span class="network-name">Sop</span></a>
+            </li>
+            <li class="list-inline-item list-kategori">
+              <a href="statics/#"><span class="network-name">Tumis</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-<div class="jumbotron">
-    <div class="container text-center">
-      <h1>My Portfolio</h1>      
-      <p>Some text that represents "Me"...</p>
-    </div>
-  </div>
-    
-  <div class="container-fluid bg-3 text-center">    
-    <h3>Some of my Work</h3><br>
-    <div class="row">
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-    </div>
-  </div><br>
+    <!-- Page Content -->
+    <section class="content-section">
 
-  <div class="container-fluid bg-3 text-center">    
-    <div class="row">
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <div class="container">
+
+        <div class="banner">
+          <img src="statics/img/banner-bg.jpg" class="img-responsive" alt="Image">
+        </div>
+        <div class="resep-container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="box-resep">
+                <div class="img-resep">
+                  <img src="statics/img/ipad.png" class="img-responsive" alt="Gambar Resep">
+                </div>
+                <div class="desc-resep">
+                  <h2 class="title-resep">Sop Iga Bakar</h2>
+                  <p>Dolor in adipisicing aliqua sit excepteur esse elit tempor laborum.</p>
+                  <span>Dibuat oleh <a href="statics/#">Nadiron</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-    </div>
-  </div><br><br>
+      <!-- /.container -->
+    </section>
+
 
 <?php 
 
