@@ -1,10 +1,7 @@
 <?php
-include('./view/layout/headerlogin.php');
+include('./view/layout/header.php');
 ?>
-<br/>
-<br/>
-<br/>
-<div class="container">
+<div class="container page">
 
 <div class="row">
   <div class="col-md-6">
