@@ -29,6 +29,17 @@ include('./view/layout/header.php');
               <a href="statics/#"><span class="network-name">Tumis</span></a>
             </li>
           </ul>
+          <form action="index.php?c=resep&m=search" method="POST" class="form-inline form-search" role="form">
+          
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-search"></i></span>
+              <input type="text" class="form-control " name="search" id="" placeholder="Cari Resep">
+            </div>
+            <button type="submit" class="btn btn-search">Cari</button>
+          
+            
+          
+          </form>
         </div>
       </div>
     </header>

@@ -4,7 +4,7 @@ include('./view/layout/header.php');
 
 
     
-  <div class="container ">
+  <div class="container page">
       <h3 class="pull-left">Resep Saya
         <a href="index.php?c=myresep&m=tambah" class=" btn btn-success" style="float: right;"> Tambah</a>
       </h3>
