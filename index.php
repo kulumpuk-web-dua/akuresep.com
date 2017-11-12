@@ -3,6 +3,14 @@
   include('controller/BaseController.php');
   
   session_start();
+
+  if(!isset($_SESSION['loginedUser'])) {
+    $_SESSION['loginedUser'] = null;
+  }
+  if(!isset($_SESSION['loginedUserDetail'])) {
+    $_SESSION['loginedUserDetail'] = null;
+  }
+
   function dd($var) {
     var_dump($var);
     die();
