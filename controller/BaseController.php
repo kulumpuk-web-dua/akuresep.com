@@ -26,11 +26,13 @@
     
     public function getDataAsArray($query) {
       $this->bukaDb();
-      $hasil;
+      $hasil = [];
       if ($result=mysqli_query($this->conn ,$query))
       {
         // Fetch one and one row
-        $hasil = mysqli_fetch_row($result);
+        while($row = mysqli_fetch_row($result)){
+          array_push($hasil, $row);
+        }
         // Free result set
         mysqli_free_result($result);
       }
@@ -40,11 +42,14 @@
     
     public function getDataAsObject($query) {
       $this->bukaDb();
-      $hasil;
+      $hasil = [];
       if ($result=mysqli_query($this->conn ,$query))
       {
         // Fetch one and one row
-        $hasil = mysqli_fetch_object($result);
+
+        while($row = mysqli_fetch_object($result)){
+          array_push($hasil, $row);
+        }
         // Free result set
         mysqli_free_result($result);
       }
