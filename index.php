@@ -26,7 +26,7 @@
     $controller = new $controllerName();
   }
   if(!$controller){
-    header('location:/index.php?c=home');
+    header('location:index.php?c=home');
   }else{
     call_user_func([$controller, $method]);
   }
