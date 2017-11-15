@@ -32,12 +32,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="statics/#"><img src="statics/img/aku_resep.png"></a>
+          <a class="navbar-brand" href="index.php"><img src="statics/img/aku_resep.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="statics/#">Daftar</a></li>
-            <li><a href="statics/#about">Masuk</a></li>
+            <?php if (isset($_SESSION['loginedUser'])): ?>
+              <li><a href="index.php?c=profile">Profil</a></li>
+              <li><a href="index.php?c=auth&m=postLogout">Keluar</a></li>
+            <?php else: ?>
+              <li><a href="index.php?c=auth&m=register">Daftar</a></li>
+              <li><a href="index.php?c=auth&m=login">Masuk</a></li> 
+            <?php endif ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

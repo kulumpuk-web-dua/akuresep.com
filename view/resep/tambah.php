@@ -14,7 +14,7 @@ include('./view/layout/header.php');
       <div class="col-md-5">
       
         <div class="form-group">
-          <label for="exampleInputEmail1">Kategori:</label>
+          <label for="exampleInpuitEmail1">Kategori:</label>
           
           <select name="kategori" class="form-control" id="">
             <option value="">Pilih Kategori</option>
