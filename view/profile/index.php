@@ -19,49 +19,42 @@ include('./view/layout/header.php');
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <?php 
-                    $data = (array) $_SESSION['loginedUserDetail'][0];
-                     ?>
-                    <table class="table table-hover">
+                      $userData = (array) $_SESSION['loginedUserDetail'][0];
+                    ?>
+                    <table class="table table-hover table-bordered">
                       <tbody>
                         <tr>
                           <th>Nama</th>
-                          <td><?php echo $data[1].' '.$data[2] ?></td>
+                          <td><?php echo $userData[1].' '.$userData[2] ?></td>
                         </tr>
                          <tr>
                           <th>Email</th>
-                          <td><?php echo $data[3] ?></td>
+                          <td><?php echo $userData[3] ?></td>
                         </tr>
                          <tr>
                           <th>Pekerjaan</th>
-                          <td><?php echo $data[4] ?></td>
+                          <td><?php echo $userData[4] ?></td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
                 <hr>
-                <h3 class="pull-left">Resep Saya
+                <h3 class="">Resep Saya
                   <a href="index.php?c=myresep&m=tambah" class=" btn btn-success" style="float: right;"> Tambah</a>
                 </h3>
                 <div class="clearfix"></div>
                 <div class="row">
-                  <div class="col-sm-3">
-                    <p>Nama Resep</p>
-                    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                  </div>
-                  <div class="col-sm-3">
-                    <p>Nama Resep</p>
-                    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                  </div>
-                  <div class="col-sm-3">
-                    <p>Nama Resep</p>
-                    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                  </div>
-                  <div class="col-sm-3">
-                    <p>Nama Resep</p>
-                    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                  </div>
-
+                  <?php
+                  foreach ($data['resepSaya'] as $key => $value) {
+                    # code...
+                    ?>
+                    <div class="col-sm-3">
+                      <p><?php echo($value->nama) ?></p>
+                      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    </div>
+                    <?php 
+                  }?>
                 </div>
               </div>
             </div>
