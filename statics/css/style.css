@@ -26,10 +26,11 @@
 body, html {
   width: 100%;
   height: 100%;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #434242;
 }
 
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
@@ -39,6 +40,10 @@ a {
 
 p {
   font-weight: normal;
+}
+
+.pagination>li>a, .pagination>li>span {
+  color: #A006B2;
 }
 
 .intro-header {
@@ -109,7 +114,16 @@ ul.intro-kategori>li a:hover {
 
 .content-section {
   padding: 50px 0;
-  background-color: #f8f8f8;
+  background-color: #fcfcfc;
+}
+
+.bg-pattern {
+  height: 400px;
+  width: 100%;
+  background: url(../img/food-pattern.jpg) repeat;
+  position: absolute;
+  top: 0;
+  
 }
 
 .page {
@@ -244,14 +258,15 @@ p.copyright {
   padding: 15px;
   background: #fff;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  position: relative;
 }
 
 .box-content .box-title {
   margin-top: 0;
   margin-bottom: 10px;
   padding-bottom: 5px;
-  font-size: 24px;
-  color: #f8d12b;
+  font-size: 30px;
+  color: #5d5d5d;
   font-family: "Imprima", Lato, Helvetica;
 }
 
@@ -260,7 +275,6 @@ p.copyright {
 }
 
 .resep-container .box-resep {
-  border-radius: 10px;
   background: #fff;
   overflow: hidden;
   box-shadow: 1px 1px 3px #cecece;
@@ -287,6 +301,151 @@ p.copyright {
   color: #888;
   font-weight: 100;
   font-size: 12px;
+}
+
+.search-container {
+  background: #fff;
+  min-height: 500px;
+}
+.search-container .message {
+  font-size: 20px;
+}
+
+.list-resep .post {
+  display: inline-block;
+  padding: 10px 0;
+  font-size: 16px ;
+  border-bottom: 1px solid #ccc;
+}
+.list-resep .post-header {
+  height: 35px;
+}
+.list-resep .post-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.list-resep .post-author {
+  float: right;
+  line-height: 35px;
+  color: #aaa;  
+}
+.list-resep .post-image {
+  width: 200px;
+  float: left;
+  overflow: hidden;
+}
+.list-resep .post-content {
+  margin-left: 200px;
+  padding: 0 20px;
+}
+.list-resep .post-content p {
+  text-align: justify;
+}
+.list-resep .post-meta {
+  color: #434242;
+  font-size: 14px;
+}
+.list-resep .post-meta span {
+  margin-right: 10px;
+}
+
+.page.detail-resep, .page.kategori {
+  max-width: 900px;
+}
+
+.detail-container .detail-image {
+  margin: auto;
+  max-width: 500px;
+  box-shadow: 0 0 3px #cecece;
+}
+.detail-container .box-header {
+  padding: 20px;
+  text-align: center;
+}
+.detail-container .author {
+  color: #aaa;
+  font-size: 22px;
+}
+.detail-container .kategori {
+  padding: 10px;
+  color: #777;
+  font-size: 18px;
+}
+.detail-container .kategori a {
+  color: #777;
+}
+
+.detail-container .content {
+  font-family: "Lato", helvetica;
+  font-size: 20px;
+}
+
+.detail-container .box-bahan, .detail-container .box-langkah, .detail-container .box-comment {
+  padding: 20px 0;
+}
+.detail-container h2 {
+}
+
+.box-langkah .langkah, .box-bahan .bahan {
+  list-style-type: none;
+  padding-left: 0;
+  counter-reset: numList;
+}
+.box-langkah .langkah li, .box-bahan .bahan li {
+  margin-bottom: 5px;
+}
+.box-langkah .langkah .desc {
+  padding-left: 30px;
+}
+.box-langkah .langkah li:before {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  margin: 0 8px 0 0;
+  display: inline-block;
+  color: #ffffff;
+  background: #977993;
+  text-align: center;
+  counter-increment: numList;
+  content: counter(numList);
+  float: left;
+  margin-top: 0 !important;
+}
+
+.panel-comment {
+  border-radius: 0;
+  border: 1px solid #cecece;
+}
+
+.list-comment {
+  padding-left: 0;
+  list-style-type: none;
+  font-size: 18px;
+}
+.list-comment li {
+  border-bottom: 1px dotted #ccc;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.list-comment p {
+  padding-left: 10px;
+}
+
+.kategori-container {
+  min-height: 500px;
+  font-size: 20px;
+}
+.kategori-container .kategori-list {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  height: 70px;
+  line-height: 70px;
+}
+.kategori-container .kategori-list a {
+  font-weight: 700;
 }
 
 @media (min-width: 768px){

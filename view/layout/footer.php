@@ -3,7 +3,7 @@
       <div class="container">
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a href="statics/#">Beranda</a>
+            <a href="index.php">Beranda</a>
           </li>
           <li class="footer-menu-divider list-inline-item">&sdot;</li>
           <li class="list-inline-item">
