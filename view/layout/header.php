@@ -37,6 +37,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <?php if (isset($_SESSION['loginedUser'])): ?>
+              <li><a>Selamat datang pengunjung! </a></li>
               <li><a href="index.php?c=profile">Profil</a></li>
               <li><a href="index.php?c=auth&m=postLogout">Keluar</a></li>
             <?php else: ?>

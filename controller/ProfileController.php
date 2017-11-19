@@ -2,15 +2,17 @@
   class ProfileController extends BaseController{
     public function index()
     {
-      $data = ['data' => ['data' => 'yo !']];
+      
+      $data = ['user'=> "user" ];
 
       echo $this->view('view/profile/index.php', $data);
       # code...
     }
-    public function hello()
+    public function ubah()
     {
-      
-      echo "IDud hello";
+      $data = ['user' => ['data' => 'yo !']];
+
+      echo $this->view('view/profile/index.php', $data);
     }
   }
 ?>

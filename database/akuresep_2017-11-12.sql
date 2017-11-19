@@ -34,6 +34,74 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+# Dump of table kategori
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `kategori`;
+
+CREATE TABLE `kategori` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) DEFAULT NULL,
+  `deskripsi` text,
+  `gambar` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table login
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `login`;
+
+CREATE TABLE `login` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(40) DEFAULT NULL,
+  `password` varchar(32) DEFAULT NULL,
+  `type` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table pengguna
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pengguna`;
+
+CREATE TABLE `pengguna` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_depan` varchar(50) DEFAULT NULL,
+  `nama_belakang` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pekerjaan` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table resep
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `resep`;
+
+CREATE TABLE `resep` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pengguna` int(11) DEFAULT NULL,
+  `id_kategori` int(11) DEFAULT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `porsi` int(11) DEFAULT NULL,
+  `durasi` varchar(255) DEFAULT NULL,
+  `deskripsi` text,
+  `tag` text,
+  `dibuat_pada` datetime DEFAULT NULL,
+  `diubah_pada` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_kategori` (`id_kategori`),
+  KEY `id_pengguna` (`id_pengguna`),
+  CONSTRAINT `resep_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `resep_ibfk_2` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 # Dump of table detail_bahan
@@ -106,74 +174,7 @@ CREATE TABLE `diskusi_resep` (
 
 
 
-# Dump of table kategori
-# ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `kategori`;
-
-CREATE TABLE `kategori` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(100) DEFAULT NULL,
-  `deskripsi` text,
-  `gambar` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table login
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `login`;
-
-CREATE TABLE `login` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(40) DEFAULT NULL,
-  `password` varchar(32) DEFAULT NULL,
-  `type` varchar(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-# Dump of table pengguna
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `pengguna`;
-
-CREATE TABLE `pengguna` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_depan` varchar(50) DEFAULT NULL,
-  `nama_belakang` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `pekerjaan` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table resep
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `resep`;
-
-CREATE TABLE `resep` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_pengguna` int(11) DEFAULT NULL,
-  `id_kategori` int(11) DEFAULT NULL,
-  `nama` varchar(100) DEFAULT NULL,
-  `porsi` int(11) DEFAULT NULL,
-  `durasi` varchar(255) DEFAULT NULL,
-  `deskripsi` text,
-  `tag` text,
-  `dibuat_pada` datetime DEFAULT NULL,
-  `diubah_pada` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_kategori` (`id_kategori`),
-  KEY `id_pengguna` (`id_pengguna`),
-  CONSTRAINT `resep_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `resep_ibfk_2` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 

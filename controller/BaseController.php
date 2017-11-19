@@ -104,7 +104,7 @@
     }
 
     public function getUserDetail() {
-      $loginedUser = $_SESSION['loginedUser'];
+      $loginedUser = $_SESSION['loginedUser'][0];
       if($loginedUser) {
         $table = strtolower($loginedUser->type);
         $query = "SElECT * FROM $table WHERE email = '$loginedUser->email'";
