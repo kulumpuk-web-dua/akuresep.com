@@ -113,6 +113,10 @@
       }
       return null;
     }
+
+    public function echoIsset($value, $key) {
+      echo(isset($value) ? $value->$key : '');
+    }
   }
   
 ?>

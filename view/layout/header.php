@@ -40,6 +40,7 @@
               <li><a>Selamat datang <?php echo $_SESSION['loginedUserDetail'][0][1] ?>! </a></li>
               <li><a href="index.php?c=profile">Profil</a></li>
               <li><a href="index.php?c=myresep&m=tambah">+Tambah Resep</a></li>
+              <li><a href="index.php?c=myresep">My Resep</a></li>
               <li><a href="index.php?c=auth&m=postLogout">Keluar</a></li>
             <?php else: ?>
               <li><a href="index.php?c=auth&m=register">Daftar</a></li>
