@@ -7,7 +7,7 @@
           </li>
           <li class="footer-menu-divider list-inline-item">&sdot;</li>
           <li class="list-inline-item">
-            <a href="statics/#services">Kategori</a>
+            <a href="index.php?c=kategori">Kategori</a>
           </li>
           <li class="footer-menu-divider list-inline-item">&sdot;</li>
           <li class="list-inline-item">

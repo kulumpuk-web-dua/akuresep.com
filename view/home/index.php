@@ -32,8 +32,9 @@ include('./view/layout/header.php');
               <a href="index.php?c=kategori"><span class="network-name">| Daftar Kategori</span></a>
             </li>
           </ul>
-          <form action="index.php?c=resep&m=search" method="POST" class="form-inline form-search" role="form">
-          
+          <form action="index.php?c=resep&m=search" method="GET" class="form-inline form-search" role="form">
+            <input type="hidden" name="c" value="resep">
+            <input type="hidden" name="m" value="search">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-search"></i></span>
               <input type="text" class="form-control " name="search" id="" placeholder="Cari Resep">
@@ -59,21 +60,25 @@ include('./view/layout/header.php');
         <div class="resep-container">
           <h1 class="box-title">Resep Terakhir Dipost</h1>
           <div class="row">
-            <?php for ($i=0; $i<4; $i++): ?>
+            <?php if (count($data['reseps'])>0): ?>
               
+            <?php foreach ($data['reseps'] as $resep): ?>
             <div class="col-md-3">
               <div class="box-resep">
                 <div class="img-resep">
                   <img src="statics/img/Gambar-Sop-Buntut.jpg" class="img-responsive" alt="Gambar Resep">
                 </div>
                 <div class="desc-resep">
-                  <h2 class="title-resep"><a href="index.php?c=resep&m=detail">Sop Iga Bakar</a></h2>
-                  <p>Dolor in adipisicing aliqua sit excepteur esse elit tempor laborum.</p>
+                  <h2 class="title-resep"><a href="index.php?c=resep&m=detail"><?php echo $resep->nama ?></a></h2>
+                  <p><?php echo $resep->deskripsi ?></p>
                   <span>Dibuat oleh <a href="statics/#">Nadiron</a></span>
                 </div>
               </div>
             </div>
-            <?php endfor ?>
+            <?php endforeach ?>
+            <?php else: ?>
+              <h1><blockquote>Tidak ada resep masakan.</blockquote></h1>
+            <?php endif ?>
           </div>
         </div>
         </div>
