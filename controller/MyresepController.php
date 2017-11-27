@@ -1,4 +1,5 @@
 <?php 
+  if(!defined("YO")) die();
   class MyresepController extends BaseController{
     public function index()
     {

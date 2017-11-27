@@ -1,4 +1,5 @@
 <?php 
+  if(!defined("YO")) die();
   class HomeController extends BaseController{
     public function index()
     {

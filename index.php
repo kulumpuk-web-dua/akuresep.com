@@ -1,5 +1,5 @@
 <?php 
-
+  define('YO', "HA");
   include('controller/BaseController.php');
   
   session_start();

@@ -1,4 +1,5 @@
 <?php 
+  if(!defined("YO")) die();
   class KategoriController extends BaseController{
     public function index()
     {
