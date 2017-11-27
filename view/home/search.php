@@ -28,14 +28,14 @@ include('./view/layout/header.php');
                 <div class="list-resep">
                     
                   <?php foreach ($data['reseps'] as $resep): ?>
-                    <div class="post">
+                    <div class="post col-md-12">
                       <div class="post-image">
                         <img src="statics/img/Gambar-Sop-Buntut.jpg" class="img-responsive" alt="Image">
                       </div>
                       <div class="post-content">
                         <div class="post-header">
-                          <a href="index.php?c=resep&m=detail" class="post-title"><?php echo $resep->nama ?></a>
-                          <a href="index.php?c=resep&m=search" class="post-author"><?php echo $resep->nama_depan ?></a>
+                          <a href="index.php?c=resep&m=detail&id=<?php echo $resep->id ?>" class="post-title"><?php echo $resep->nama ?></a>
+                          <a href="index.php?c=profle&m=resep&id=<?php echo $resep->id_pengguna ?>" class="post-author"><?php echo $resep->nama_depan ?></a>
                         </div>
                         <p><?php echo $resep->deskripsi ?></p>
                         <div class="post-meta">

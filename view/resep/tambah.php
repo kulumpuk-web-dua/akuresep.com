@@ -9,14 +9,14 @@ include('./view/layout/header.php');
         <a href="index.php?c=myresep&m=index" class=" btn btn-success" style="float: right;"> Kembali</a>
       </h3>
     <br>
-  <form action="index.php?c=myresep&m=postTambah" method="post">
+  <form action="index.php?c=myresep&m=postTambah"  method="post">
     <div class="row">
       <div class="col-md-5">
       
         <div class="form-group">
           <label for="exampleInpuitEmail1">Kategori:</label>
           
-          <select name="kategori" class="form-control" id="">
+          <select name="kategori" enctype="multipart/form-data" class="form-control" id="">
             <option value="">Pilih Kategori</option>
             <?php 
               foreach ($data['listKategori'] as $key => $value) {
@@ -69,6 +69,11 @@ include('./view/layout/header.php');
           <label for="exampleInputEmail1">Langkah:</label>
           <textarea name="langkah_resep" class="form-control" id="" cols="10" rows="10"></textarea>
               
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Gambar:</label>
+          <input type="file" name="gambar" id="">
         </div>
 
       </div>

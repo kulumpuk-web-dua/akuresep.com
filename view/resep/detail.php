@@ -13,21 +13,21 @@ include('./view/layout/header.php');
               <img src="statics/img/sop-kaki-sapi.jpg" class="img-responsive" alt="Image">
             </div> 
             <div class="box-header">
-              <h1 class="box-title">Sop Buntut Tulang Rangu</h1>
-              <a href="" class="author">Feni Nuryanti</a>
-              <div class="kategori"><a href=""><i class="fa fa-hashtag"></i> Sop</a></div>
+            <?php $resep = $data['resep'][0]?>
+              <h1 class="box-title"><?php echo($resep->nama)?></h1>
+              <a href="" class="author"><?php echo($resep->nama_depan. " " . $resep->nama_belakang)?></a>
+              <div class="kategori"><a href=""><i class="fa fa-hashtag"></i> <?php echo($resep->nama_kategori)?></a></div>
               <hr>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="content">
                   <div class="box-deskripsi">
-                    <p><strong>Deskripsi: </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <p><strong>Deskripsi: </strong> <?php echo($resep->deskripsi)?></p>
 
                     <div class="row">
-                      <div class="col-sm-3"><strong>Sajian: </strong> 3 porsi</div>
-                      <div class="col-sm-3"><strong>Durasi: </strong>30 Menit</div>
+                      <div class="col-sm-3"><strong>Sajian: </strong> <?php echo($resep->porsi)?></div>
+                      <div class="col-sm-3"><strong>Durasi: </strong><?php echo($resep->durasi)?></div>
                       <div class="col-sm-3"></div>
                       <div class="col-sm-3"><small><i class="fa fa-clock-o"></i> 22/11/2017 14:20</small></div>
                     </div>
@@ -35,39 +35,33 @@ include('./view/layout/header.php');
                   <div class="box-bahan">
                     <h2>Bahan Bahan</h2>
                     <ul class="bahan">
+                    <?php 
+                    foreach (explode(PHP_EOL, $resep->bahan_bahan) as $key => $value) {
+                      # code...
+                      ?>
                       <li>
-                        <strong>500 gram </strong> daging ayam
+                        <?php echo $value ?>
                       </li>
-                      <li>
-                        <strong>2 butir </strong> telur
-                      </li>
-                      <li>
-                        <strong>4 siung </strong>  bawang putih
-                      </li>
-                      <li>
-                        <strong>3 siung </strong>  bawang merah
-                      </li>
-                      <li>
-                        <strong>secukupnya   </strong>  garam
-                      </li>
-                      <li>
-                        <strong>secukupnya  </strong>  lada
-                      </li>
+                      <?php 
+                    }?>
                     </ul>
 
                   </div>
                   <div class="box-langkah">
                     <h2>Langkah langkah</h2>
                     <ul class="langkah">
-                      <li><div class="desc">Cuci ayam lalu pisahkan antara daging dan tulangnya.</div></li>
-                      <li><div class="desc">Enim sunt laborum magna dolore amet velit cupidatat sed.</div></li>
-                      <li><div class="desc">Simpan daging ayam di lemari pendingin selama 10 menit.</div></li>
-                      <li><div class="desc">Campur semua bahan lalu diblender sampai halus.</div></li>
-                      <li><div class="desc">Simpan kembali di lemari pendingin minimal 10 menit.</div></li>
-                      <li><div class="desc">Panaskan air dalam panci.</div></li>
-                      <li><div class="desc">Bentuk adonan menggunakan tangan menjadi bentuk bulat lalu masukkan dalam air mendidih.</div></li>
-                      <li><div class="desc">Tunggu hingga matang.</div></li>
-                      <li><div class="desc">Jika ingin ditambah kuah baso, langsung saja didihkan air lalu beri garam, bawang putih, lada.</div></li>
+                    <?php 
+                    foreach (explode(PHP_EOL, $resep->langkah_resep) as $key => $value) {
+                      # code...
+                      if($value != "") {
+                        
+                      ?>
+                        <li><div class="desc">
+                          <?php echo $value ?>
+                        </div></li>
+                      <?php 
+                      }
+                    }?>
                     </ul>
                   </div>
                   <div class="box-img">
