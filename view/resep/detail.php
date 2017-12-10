@@ -15,7 +15,7 @@ include('./view/layout/header.php');
             <div class="box-header">
             <?php $resep = $data['resep'][0]?>
               <h1 class="box-title"><?php echo($resep->nama)?></h1>
-              <a href="" class="author"><?php echo($resep->nama_depan. " " . $resep->nama_belakang)?></a>
+              <a href="index.php?c=profile&user=<?php echo $resep->id_pengguna?>" class="author"><?php echo($resep->nama_depan. " " . $resep->nama_belakang)?></a>
               <div class="kategori"><a href=""><i class="fa fa-hashtag"></i> <?php echo($resep->nama_kategori)?></a></div>
               <hr>
             </div>

@@ -3,8 +3,13 @@
   class ProfileController extends BaseController{
     public function index()
     {
-      
-      $userdata = $_SESSION['loginedUserDetail'][0];
+      $userdata = null;
+      if(!isset($_GET['user'])){
+        $userdata = $_SESSION['loginedUserDetail'][0];
+      } else {
+        $user = $_GET['user'];
+        $userdata = $this->getDataAsArray("SElECT * FROM pengguna WHERE id = '$user'")[0];
+      }
       $data = [
         'user'=> "user",
         'resepSaya' => $this->getDataAsObject("SELECT * FROM resep WHERE id_pengguna = '$userdata[0]' limit 0, 8")

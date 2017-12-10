@@ -69,9 +69,9 @@ include('./view/layout/header.php');
                   <img src="statics/img/Gambar-Sop-Buntut.jpg" class="img-responsive" alt="Gambar Resep">
                 </div>
                 <div class="desc-resep">
-                  <h2 class="title-resep"><a href="index.php?c=resep&m=detail"><?php echo $resep->nama ?></a></h2>
+                  <h2 class="title-resep"><a href="index.php?c=resep&m=detail&id=<?php echo $resep->id ?> "><?php echo $resep->nama ?></a></h2>
                   <p><?php echo $resep->deskripsi ?></p>
-                  <span>Dibuat oleh <a href="statics/#">Nadiron</a></span>
+                  <span>Dibuat oleh <a href="index.php?c=profile&user=<?php echo $resep->id_pengguna?>"><?php echo $resep->nama_depan ?></a></span>
                 </div>
               </div>
             </div>
