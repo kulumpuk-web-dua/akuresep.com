@@ -1,5 +1,6 @@
 <?php
 include('./view/layout/header.php');
+$kategori = $data['kategori'][0];
 ?>
 
     <!-- Page Content -->
@@ -10,25 +11,25 @@ include('./view/layout/header.php');
         <div class="box-content">
           <div class="detail-container">
             <div class="box-header">
-              <h1 class="box-title">Kategori : Kue</h1>
-              <blockquote>Non in ut incididunt consequat ex qui sint dolore fugiat duis cupidatat reprehenderit eu excepteur occaecat est est.</blockquote>
+              <h1 class="box-title">Kategori : <?php echo $kategori->nama ?></h1>
+              <blockquote><?php echo $kategori->deskripsi ?></blockquote>
             </div>
             <div class="detail-image">
-              <img src="statics/img/anekakue.jpg" class="img-responsive" alt="Image">
+              <img src="statics/image/<?php echo $kategori->image ?>" class="img-responsive" alt="<?php echo $kategori->nama ?>">
             </div> 
             <hr>
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <div class="list-resep">
-                  <?php for ($i=0;$i < 10; $i++): ?>
+                  <?php foreach ($data['reseps'] as $resep): ?>
                     
                     <div class="post">
                       <div class="post-image">
-                        <img src="statics/img/kue.jpg" class="img-responsive" alt="Image">
+                        <img src="statics/image/<?php echo $resep->image ?>" class="img-responsive" alt="<?php echo $resep->nama ?>">
                       </div>
                       <div class="post-content">
                         <div class="post-header">
-                          <a href="index.php?c=resep&m=detail" class="post-title">Kue <?php echo $i ?></a>
+                          <a href="index.php?c=resep&m=detail" class="post-title"><?php echo $resep->nama ?></a>
                           <a href="index.php?c=resep&m=search" class="post-author">Rama Sadewa</a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -43,7 +44,8 @@ include('./view/layout/header.php');
                       </div>
                     </div>
 
-                  <?php endfor ?>
+                  <?php endforeach ?>
+
                     <nav aria-label="Page navigation">
                       <ul class="pagination">
                         <li>

@@ -13,46 +13,13 @@ include('./view/layout/header.php');
             <hr>
             <img src="statics/img/kategori.jpg" class="img-responsive" alt="Kategori">
             <div class="row">
+              <?php foreach ($data['kategories'] as $kategori): ?>
               <div class="col-md-4">
                 <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Makanan</a>
+                  <a href="index.php?c=kategori&m=detail&id_kategori=<?php echo $kategori->id ?>"><i class="fa fa-hashtag"></i> <?php echo $kategori->nama ?></a>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Minuman</a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Sambal</a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Cemilan</a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Kue</a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Sop</a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Tumis</a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="kategori-list">
-                  <a href="index.php?c=kategori&m=detail"><i class="fa fa-hashtag"></i> Kukus</a>
-                </div>
-              </div>
+              <?php endforeach ?>
             </div>
           </div>
         </div>
