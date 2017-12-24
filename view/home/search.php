@@ -30,7 +30,7 @@ include('./view/layout/header.php');
                   <?php foreach ($data['reseps'] as $resep): ?>
                     <div class="post col-md-12">
                       <div class="post-image">
-                        <img src="statics/img/Gambar-Sop-Buntut.jpg" class="img-responsive" alt="Image">
+                        <img src="statics/image/<?php echo $resep->gambar_utama ? : "no-image.png"?>"  class="img-responsive" alt="Image">
                       </div>
                       <div class="post-content">
                         <div class="post-header">

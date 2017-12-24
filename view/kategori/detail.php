@@ -15,27 +15,24 @@ $kategori = $data['kategori'][0];
               <blockquote><?php echo $kategori->deskripsi ?></blockquote>
             </div>
             <div class="detail-image">
-              <img src="statics/image/<?php echo $kategori->image ?>" class="img-responsive" alt="<?php echo $kategori->nama ?>">
+              <img src="statics/image/<?php echo $kategori->gambar ? : "no-image.png"?>"  class="img-responsive" alt="<?php echo $kategori->nama ?>">
             </div> 
             <hr>
             <div class="row">
-              <div class="col-md-10 col-md-offset-1">
+              <div class="col-md-12 col-md-offset-0">
                 <div class="list-resep">
                   <?php foreach ($data['reseps'] as $resep): ?>
                     
                     <div class="post">
                       <div class="post-image">
-                        <img src="statics/image/<?php echo $resep->image ?>" class="img-responsive" alt="<?php echo $resep->nama ?>">
+                        <img src="statics/image/<?php echo $resep->gambar_utama ? : "no-image.png"?>"  class="img-responsive" alt="<?php echo $resep->nama ?>">
                       </div>
                       <div class="post-content">
                         <div class="post-header">
                           <a href="index.php?c=resep&m=detail" class="post-title"><?php echo $resep->nama ?></a>
-                          <a href="index.php?c=resep&m=search" class="post-author">Rama Sadewa</a>
+                          <a href="index.php?c=resep&m=search" class="post-author"><?php echo $resep->nama_depan ?></a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+                        <p><?php echo $resep->deskripsi?></p>
                         <div class="post-meta">
                           <span><i class="fa fa-heart"></i> Disukai 10 Orang</span>
                           <span><i class="fa fa-coffee"></i> 5 Porsi</span>

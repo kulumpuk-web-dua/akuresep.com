@@ -6,14 +6,14 @@ include('./view/layout/header.php');
 <section class="content-section">
   <div class="bg-pattern">
   </div>
+      <?php $resep = $data['resep'][0]?>
       <div class="container page detail-resep">
         <div class="box-content">
           <div class="detail-container">
             <div class="detail-image">
-              <img src="statics/img/sop-kaki-sapi.jpg" class="img-responsive" alt="Image">
+              <img src="statics/image/<?php echo $resep->gambar_utama ? : "no-image.png"?>"  class="img-responsive" alt="Image">
             </div> 
             <div class="box-header">
-            <?php $resep = $data['resep'][0]?>
               <h1 class="box-title"><?php echo($resep->nama)?></h1>
               <a href="index.php?c=profile&user=<?php echo $resep->id_pengguna?>" class="author"><?php echo($resep->nama_depan. " " . $resep->nama_belakang)?></a>
               <div class="kategori"><a href=""><i class="fa fa-hashtag"></i> <?php echo($resep->nama_kategori)?></a></div>
@@ -67,9 +67,14 @@ include('./view/layout/header.php');
                   <div class="box-img">
                     <h2>Gambar</h2>
                     <div class="row">
-                      <div class="col-md-3"><a href="statics/img/sop-kaki-sapi.jpg" target="blank"><img src="statics/img/sop-kaki-sapi.jpg" class="img-responsive" alt="Image"></a></div>
-                      <div class="col-md-3"><a href="statics/img/Gambar-Sop-Buntut.jpg" target="blank"><img src="statics/img/Gambar-Sop-Buntut.jpg" class="img-responsive" alt="Image"></a></div>
-                      <div class="col-md-3"><a href="statics/img/sop-kaki-sapi.jpg" target="blank"><img src="statics/img/sop-kaki-sapi.jpg" class="img-responsive" alt="Image"></a></div>
+
+                      <?php 
+                        foreach ($data['gambar'] as $key => $value) {
+                          ?>
+                          <div class="col-md-3"><a href="statics/image/<?php echo $value->gambar ? : "no-image.png"?>" target="blank"><img src="statics/image/<?php echo $value->gambar ? : "no-image.png"?>"  class="img-responsive" alt="Image"></a></div>
+                          <?php 
+                        }
+                      ?>
                     </div>
                   </div>
 

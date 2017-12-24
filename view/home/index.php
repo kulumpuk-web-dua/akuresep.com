@@ -56,7 +56,7 @@ include('./view/layout/header.php');
             <div class="col-md-3">
               <div class="box-resep">
                 <div class="img-resep">
-                  <img src="statics/img/Gambar-Sop-Buntut.jpg" class="img-responsive" alt="Gambar Resep">
+                  <img src="statics/image/<?php echo $resep->gambar_utama ? : "no-image.png"?>" class="img-responsive" alt="Gambar Resep">
                 </div>
                 <div class="desc-resep">
                   <h2 class="title-resep"><a href="index.php?c=resep&m=detail&id=<?php echo $resep->id ?> "><?php echo $resep->nama ?></a></h2>
