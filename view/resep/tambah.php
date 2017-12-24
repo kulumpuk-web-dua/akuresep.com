@@ -9,7 +9,7 @@ include('./view/layout/header.php');
         <a href="index.php?c=myresep&m=index" class=" btn btn-success" style="float: right;"> Kembali</a>
       </h3>
     <br>
-  <form action="index.php?c=myresep&m=postTambah"  method="post">
+  <form action="index.php?c=myresep&m=postTambah"  method="post" enctype="multipart/form-data">
     <div class="row">
       <div class="col-md-5">
       

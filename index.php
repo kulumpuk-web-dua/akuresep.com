@@ -1,4 +1,6 @@
 <?php 
+
+date_default_timezone_set("UTC");
   define('YO', "HA");
   include('controller/BaseController.php');
   

@@ -57,15 +57,21 @@
       $id_user = $userdata[0];
       $id_kategori = $_POST['kategori'];
 
-
-      
+      $upload =  $this->uploadImage('gambar');
       $query = "
         INSERT INTO `resep` (`id_pengguna`, `id_kategori`, `nama`, `porsi`, `durasi`, `deskripsi`, `tag`, `bahan_bahan`, `langkah_resep`) 
         VALUES ('$id_user','$id_kategori','$nama', '$porsi', '$durasi', '$deskripsi', '$tag', '$bahan_bahan', '$langkah_resep');
-      
+        
       ";
       $data =  $this->executeQuery($query);
-
+      $resep_id = $this->conn->insert_id;
+      if($upload != ""){
+        $query = "
+        INSERT INTO `detail_gambar` (`id_resep`, `gambar`, `utama`) 
+        VALUES ('$resep_id','$upload','1');
+        ";
+        $this->executeQuery($query);
+      }
       if($data){
         header('location:index.php?c=myresep&m=index');
       }
@@ -110,6 +116,5 @@
       }
       
     }
-    
   }
 ?>

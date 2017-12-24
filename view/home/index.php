@@ -10,24 +10,14 @@ include('./view/layout/header.php');
           <h3>Resep nusantara dan mancanegara</h3>
           <hr class="intro-divider">
           <ul class="list-inline intro-kategori">
-            <li class="list-inline-item list-kategori">
-              <a href="index.php?c=kategori&m=detail"><span class="network-name">Makanan</span></a>
-            </li>
-            <li class="list-inline-item list-kategori">
-              <a href="index.php?c=kategori&m=detail"><span class="network-name">Minuman</span></a>
-            </li>
-            <li class="list-inline-item list-kategori">
-              <a href="index.php?c=kategori&m=detail"><span class="network-name">Kue</span></a>
-            </li>
-            <li class="list-inline-item list-kategori">
-              <a href="index.php?c=kategori&m=detail"><span class="network-name">Cemilan</span></a>
-            </li>
-            <li class="list-inline-item list-kategori">
-              <a href="index.php?c=kategori&m=detail"><span class="network-name">Sop</span></a>
-            </li>
-            <li class="list-inline-item list-kategori">
-              <a href="index.php?c=kategori&m=detail"><span class="network-name">Tumis</span></a>
-            </li>
+
+            <?php if (count($data['kategories'])>0) { ?>
+              <?php foreach ($data['kategories'] as $resep): ?>
+                <li class="list-inline-item list-kategori">
+                  <a href="index.php?c=kategori&m=detail&id_kategori=<?php echo($resep->id) ?>"><span class="network-name"><?php echo($resep->nama) ?></span></a>
+                </li>
+              <?php endforeach ?>
+            <?php } ?>
             <li class="list-inline-item list-kategori">
               <a href="index.php?c=kategori"><span class="network-name">| Daftar Kategori</span></a>
             </li>

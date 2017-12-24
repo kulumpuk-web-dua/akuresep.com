@@ -118,6 +118,58 @@
     public function echoIsset($value, $key) {
       echo(isset($value) ? $value->$key : '');
     }
+
+    public function uploadImage($uploadField) {
+      $target_dir = "statics/image/";
+      $target_file = $target_dir . basename( $_FILES[$uploadField]["name"]);
+      $uploadOk = 1;
+      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      $messages = "";
+
+      $filename = md5(date('ddmm-yyyy:hh-iiss')). ("." . $imageFileType);
+      // Check if image file is a actual image or fake image
+      if(isset($_POST["submit"])) {
+          $check = getimagesize($_FILES[$uploadField]["tmp_name"]);
+          if($check !== false) {
+            $messages = "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+          } else {
+            $messages = "File is not an image.";
+            $uploadOk = 0;
+          }
+      }
+      // Check if file already exists
+      // if (file_exists($target_file)) {
+      //     $messages =  "Sorry, file already exists.";
+      //     $uploadOk = 0;
+      // }
+      // Check file size
+      if ($_FILES[$uploadField]["size"] > 500000) {
+          $messages = "Sorry, your file is too large.";
+          $uploadOk = 0;
+      }
+      // Allow certain file formats
+      if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+      && $imageFileType != "gif" ) {
+          $messages = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+          $uploadOk = 0;
+      }
+      // Check if $uploadOk is set to 0 by an error
+      $uploaded = 0;
+      if ($uploadOk == 0) {
+          // $messages = "Sorry, your file was not uploaded.";
+      // if everything is ok, try to upload file
+      } else {
+          $uploadTo = $target_dir . $filename ;
+          if (move_uploaded_file($_FILES[$uploadField]["tmp_name"], $uploadTo)) {
+            $messages = "The file ". basename( $_FILES[$uploadField]["name"]). " has been uploaded.";
+            $uploaded = 1;
+          } else {
+            $messages = "Sorry, there was an error uploading your file.";
+          }
+      }
+      return $uploaded == 1 ? $filename : "";
+    }
   }
   
 ?>
