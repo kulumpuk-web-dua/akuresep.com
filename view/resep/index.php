@@ -23,7 +23,7 @@ include('./view/layout/header.php');
                   ?>
                     <div class="col-sm-3">
                       <p><?php echo($value->nama) ?></p>
-                      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                      <img src="statics/image/<?php echo $value->gambar_utama ? : "no-image.png"?>" class="img-responsive" style="width:100%" alt="Image">
                       <br>
                       <a href="index.php?c=myresep&m=edit&id=<?php echo($value->id)?>" class="btn btn-warning"> Edit</a>
                       <a href="index.php?c=myresep&m=delete&id=<?php echo($value->id)?>" class="btn btn-danger"> Delete</a>
