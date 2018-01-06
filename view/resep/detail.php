@@ -7,6 +7,7 @@ include('./view/layout/header.php');
   <div class="bg-pattern">
   </div>
       <?php $resep = $data['resep'][0]?>
+      <?php $listKomentar = $data['komentar']?>
       <div class="container page detail-resep">
         <div class="box-content">
           <div class="detail-container">
@@ -86,9 +87,9 @@ include('./view/layout/header.php');
                       </div>
                       <div class="panel-body">
                         <blockquote><strong>Mohon maaf silahkan login terlebih dahulu untuk memberikan opini.</strong></blockquote>
-                        <form action="" method="POST" role="form">
+                        <form action="index.php?c=resep&m=addComment&id=4" method="POST" role="form">
                             <div class="form-group">
-                              <textarea name="" id="input" class="form-control" rows="3" required="required"></textarea>
+                              <textarea name="pesan" id="input" class="form-control" rows="3" required="required"></textarea>
                             </div>
                             <button type="submit" class="btn btn-default btn-lg">Post</button> 
                         </form>
@@ -96,21 +97,24 @@ include('./view/layout/header.php');
                     </div>
                     <hr>
                     <ul class="list-group list-comment">
-                      <li>
-                        <div class="author">Deden Nurjaman</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.</p>
-                      </li>
-                      <li>
-                        <div class="author">Dudi Jumaedi</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt.</p>
-                      </li>
-                      <li>
-                        <div class="author">Aji Masahid</div>
-                        <p>Lonsectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.</p>
-                      </li>
+                      
+                      <?php 
+                      if(count($listKomentar) > 0) 
+                        {
+                        foreach ($listKomentar as $key => $koment) {
+                          ?> 
+                            <li>
+                              <div class="author"><?php echo $koment->nama_pengguna ?>
+                              
+                              <small class="pull-right"><?php echo $koment->dibuat_pada  ?></small>
+                              </div>
+                              <p><?php echo $koment->pesan  ?></p>
+                            </li>
+                          <?php 
+                        }
+                      }else {
+                        echo "<center> Tidak Ada Data </center>";
+                      }?> 
                     </ul>
 
                   </div>

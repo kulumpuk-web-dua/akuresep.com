@@ -19,6 +19,7 @@
         LEFT JOIN pengguna ON pengguna.id=resep.id_pengguna 
         WHERE resep.id = '$idResep'");
       $data['gambar'] = $this->getDataAsObject("SELECT * FROM detail_gambar where id_resep = '$idResep'");
+      $data['komentar'] = $this->getDataAsObject("SELECT diskusi.*,  (pengguna.nama_depan) as nama_pengguna from diskusi_resep as diskusi join pengguna where diskusi.id_pengguna =  pengguna.id and  diskusi.id_resep = '$idResep'");
       echo $this->view('view/resep/detail.php', $data);
     }
 
@@ -32,6 +33,24 @@
       from resep LEFT JOIN pengguna ON pengguna.id=resep.id_pengguna WHERE resep.nama like '%$search%' OR pengguna.nama_depan like '%$search%' OR pengguna.nama_belakang like '%$search%'");
 
       echo $this->view('view/home/search.php', $data);
+    }
+
+    public function addComment() {
+
+      $userdata = $_SESSION['loginedUserDetail'][0];
+      $id_user =  $userdata[0];
+      $idResep = $_GET['id'];
+      $pesan =  $_POST['pesan'];
+      $date = date('Y-m-d h:i:s'); //2018-10-10 00:00:00
+      $query = "
+        INSERT INTO `diskusi_resep` (`id_pengguna`, `id_resep`, `pesan`, `dibuat_pada`) 
+        VALUES ('$id_user','$idResep','$pesan', '$date');
+        
+      ";
+      $data =  $this->executeQuery($query);
+      if($data) {
+        header("location:index.php?c=resep&m=detail&id=$idResep");
+      }
     }
   }
 ?>
