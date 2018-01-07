@@ -89,7 +89,7 @@ include('./view/layout/header.php');
                       <?php if(!$data['user']) {?> 
                         <blockquote><strong>Mohon maaf silahkan login terlebih dahulu untuk memberikan opini.</strong></blockquote>
                       <?php } else { ?>  
-                        <form action="index.php?c=resep&m=addComment&id=4" method="POST" role="form">
+                        <form action="index.php?c=resep&m=addComment&id=<?php echo($resep->id) ?> " method="POST" role="form">
                             <div class="form-group">
                               <textarea name="pesan" id="input" class="form-control" rows="3" required="required"></textarea>
                             </div>
