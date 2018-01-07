@@ -44,13 +44,14 @@ include('./view/layout/header.php');
       <div class="container">
 
         <div class="banner">
-          <img src="statics/img/banner-resep-produk-tepung.png" class="img-responsive" alt="Image">
+        <a href="index.php?c=resep&m=search"><img src="statics/img/banner-resep-produk-tepung.png" class="img-responsive" alt="Image"></a>
         </div>
         <div class="box-content">
         <div class="resep-container">
           <h1 class="box-title">Resep Terakhir Dipost</h1>
+
+          <?php if (count($data['reseps'])>0): ?>
           <div class="row">
-            <?php if (count($data['reseps'])>0): ?>
               
             <?php foreach ($data['reseps'] as $resep): ?>
             <div class="col-md-3">
@@ -66,10 +67,12 @@ include('./view/layout/header.php');
               </div>
             </div>
             <?php endforeach ?>
+          </div>
+
+          <h1><a href="index.php?c=resep&m=search"><blockquote>Lihat Yang Lainnya</blockquote></a></h1>
             <?php else: ?>
               <h1><blockquote>Tidak ada resep masakan.</blockquote></h1>
             <?php endif ?>
-          </div>
         </div>
         </div>
       </div>

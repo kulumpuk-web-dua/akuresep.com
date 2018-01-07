@@ -170,6 +170,13 @@
       }
       return $uploaded == 1 ? $filename : "";
     }
+
+    public function getPaginationStatus($table, $offset, $whereQuery) {
+      $query = "SELECT count(id) as totalPage, '$offset' as pageOffset FROM $table " . $whereQuery;
+
+      $data =  $this->getDataAsObject($query)[0];
+      return $data;
+    }
   }
   
 ?>

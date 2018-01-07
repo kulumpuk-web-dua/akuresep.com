@@ -68,7 +68,7 @@
       if($data){
         $query = "
           INSERT INTO `pengguna` (`nama_depan`, `nama_belakang`, `email`, `pekerjaan`) 
-          VALUES ('$nama_depan','$nama_depan', '$email', '$pekerjaan');
+          VALUES ('$nama_depan','$nama_belakang', '$email', '$pekerjaan');
         ";
         $data =  $this->executeQuery($query);
         header('location:index.php?c=auth&m=login');
