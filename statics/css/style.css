@@ -26,7 +26,7 @@
 body, html {
   width: 100%;
   height: 100%;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #434242;
 }
 
@@ -35,15 +35,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #A006B2;
+  color: #ba55c6;
 }
-
+a:focus, a:hover {
+  color: #8c6b88;
+  text-decoration: none;
+}
 p {
   font-weight: normal;
 }
 
 .pagination>li>a, .pagination>li>span {
-  color: #A006B2;
+  color: #ba55c6;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+  background-color: #ba55c6;
+  border-color: #ba55c6;
 }
 
 .intro-header {
@@ -52,6 +59,12 @@ p {
   text-align: center;
   color: #797979;
   border-bottom: 1px solid #eaeaea;
+  /*background: url(../image/home-banner.jpg) no-repeat center center fixed; */
+  background: url(../image/home-banner.jpg) no-repeat; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .intro-message {
@@ -97,13 +110,29 @@ ul.intro-kategori>li a:hover {
   }
   ul.intro-kategori>li {
     display: block;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
+    float: left;
+    width: 33%;
     padding: 0;
     border-bottom: 3px solid transparent;
   }
   ul.intro-kategori>li:last-child {
     margin-bottom: 0;
   }
+}
+
+.panel,.btn, input, textarea, li, ul {
+  border-radius: 0;
+}
+
+.form-control:not(textarea) {
+  height: 42px;
+  padding: 10px 15px;
+  line-height: 42px;
+  border-radius: 20px;
+}
+.btn {
+  border-radius: 20px;
 }
 
 .network-name {
@@ -120,14 +149,25 @@ ul.intro-kategori>li a:hover {
 .bg-pattern {
   height: 400px;
   width: 100%;
-  background: url(../img/food-pattern.jpg) repeat;
+  background: #d9cfd8;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   position: absolute;
   top: 0;
-  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .page {
   padding-top: 100px;
+}
+.page-2x {
+  padding-top: 200px;
 }
 
 .section-heading {
@@ -147,7 +187,8 @@ ul.intro-kategori>li a:hover {
 
 .banner img {
   background: #fff;
-  border: 2px solid #666;
+  border: 1px solid #c3c3c3;
+  width: 100%;
 }
 
 .banner h2 {
@@ -159,21 +200,26 @@ ul.intro-kategori>li a:hover {
   margin-bottom: 0;
 }
 
-footer {
+footer.footer-web {
   padding: 50px 0;
   background-color: #333;
 }
 
 p.copyright {
   margin: 15px 0 0;
-  color: #666;
+  color: #c3c3c3;
+}
+blockquote.intro {
+  background-color: white;
+  box-shadow: 0 0 1px #c3c3c3;
+  font-size: 24px;
 }
 
 .navbar-resep {
   background: #fff;
   min-height: 75px;
   border-bottom: 0;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .navbar-resep .navbar-brand {
@@ -217,6 +263,13 @@ p.copyright {
   background: #ccc;
   margin-top: 20px;
 }
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  color: #797979;
+  background-color: #fff;
+}
+.dropdown-menu>li>a {
+  color: #797979;
+}
 .navbar-resep .navbar-toggle .icon-bar {
   background-color: #fff;
 }
@@ -257,17 +310,21 @@ p.copyright {
 .box-content {
   padding: 15px;
   background: #fff;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 0 3px #666;
   position: relative;
+}
+.box-content.detail-resep {
+  background: url(../img/food-pattern.jpg) repeat-x;
+  background-color: #fff;
 }
 
 .box-content .box-title {
   margin-top: 0;
   margin-bottom: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   font-size: 30px;
   color: #5d5d5d;
-  font-family: "Imprima", Lato, Helvetica;
+  font-family: Roboto, "Imprima", Lato, Helvetica;
 }
 
 .resep-container {
@@ -284,6 +341,10 @@ p.copyright {
 .resep-container .box-resep .img-resep {
   max-height: 200px;
   overflow: hidden;
+}
+.resep-container .box-resep .img-resep img {
+  height: 200px;
+  width: 100%
 }
 .resep-container .box-resep .desc-resep {
   padding: 15px;
@@ -318,10 +379,10 @@ p.copyright {
   border-bottom: 1px solid #ccc;
 }
 .list-resep .post-header {
-  height: 35px;
+  margin-bottom: 10px;
 }
 .list-resep .post-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -335,6 +396,10 @@ p.copyright {
   float: left;
   overflow: hidden;
 }
+.list-resep .post-image img {
+  width: 200px;
+  height: 150px;
+}
 .list-resep .post-content {
   margin-left: 200px;
   padding: 0 20px;
@@ -343,8 +408,9 @@ p.copyright {
   text-align: justify;
 }
 .list-resep .post-meta {
-  color: #434242;
-  font-size: 14px;
+  color: #b2b2b2;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 .list-resep .post-meta span {
   margin-right: 10px;
@@ -359,13 +425,30 @@ p.copyright {
   max-width: 500px;
   box-shadow: 0 0 3px #cecece;
 }
+.detail-container .detail-image.kategori-circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.detail-container .detail-image.circle {
+  max-width: 250px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -100px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 5px 0px #333;
+}
 .detail-container .box-header {
   padding: 20px;
-  text-align: center;
+  /*text-align: center;*/
+}
+.page-2x .detail-container .box-header {
+  margin-top: 140px;
 }
 .detail-container .author {
-  color: #aaa;
-  font-size: 22px;
+  color: #6b4065;
+  font-size: 18px;
 }
 .detail-container .kategori {
   padding: 10px;
@@ -385,6 +468,8 @@ p.copyright {
   padding: 20px 0;
 }
 .detail-container h2 {
+  border-bottom: 4px solid #fbe68d;
+  padding-bottom: 10px;
 }
 
 .box-langkah .langkah, .box-bahan .bahan {
@@ -438,11 +523,10 @@ p.copyright {
   font-size: 20px;
 }
 .kategori-container .kategori-list {
-  padding: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 45px;
 }
 .kategori-container .kategori-list a {
   font-weight: 700;
@@ -457,4 +541,57 @@ p.copyright {
   padding-bottom: 0;
   line-height: 75px;
 }
+}
+
+.btn-akuresep {
+  background-color: #62355c;
+  border-color: #7d4776;
+  color: #fff;
+}
+.btn-akuresep:hover {
+  background-color: #7d4776;
+  color: #fff;
+}
+
+.head-login {
+  font-size: 24px;
+  font-weight: 600;
+  color: #744c6e;
+  text-transform: uppercase;
+}
+
+.komentar .thumbnail {
+  padding:0px;
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+}
+.komentar .thumbnail img {
+  height: 80px;
+  width: 80px;
+}
+.komentar .panel {
+  position:relative;
+}
+.komentar .panel>.panel-heading:after,.komentar .panel>.panel-heading:before{
+  position:absolute;
+  top:11px;left:-16px;
+  right:100%;
+  width:0;
+  height:0;
+  display:block;
+  content:" ";
+  border-color:transparent;
+  border-style:solid solid outset;
+  pointer-events:none;
+}
+.komentar .panel>.panel-heading:after{
+  border-width:7px;
+  border-right-color:#f7f7f7;
+  margin-top:1px;
+  margin-left:2px;
+}
+.komentar .panel>.panel-heading:before{
+  border-right-color:#ddd;
+  border-width:8px;
 }

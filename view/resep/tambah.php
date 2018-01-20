@@ -6,7 +6,7 @@ include('./view/layout/header.php');
     
   <div class="container " style="padding-top: 100px;">
       <h3 class="">Tambah Resep
-        <a href="index.php?c=myresep&m=index" class=" btn btn-success" style="float: right;"> Kembali</a>
+        <a href="index.php?c=profile" class=" btn btn-success" style="float: right;"> Kembali</a>
       </h3>
     <br>
   <form action="index.php?c=myresep&m=postTambah"  method="post" enctype="multipart/form-data">
