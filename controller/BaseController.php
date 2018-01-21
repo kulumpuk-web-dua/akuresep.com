@@ -31,7 +31,7 @@
       if ($result=mysqli_query($this->conn ,$query))
       {
         // Fetch one and one row
-        while($row = mysqli_fetch_row($result)){
+        while($row = mysqli_fetch_assoc($result)){
           array_push($hasil, $row);
         }
         // Free result set
@@ -55,6 +55,18 @@
         mysqli_free_result($result);
       }
       mysqli_close($this->conn);
+      return $hasil;
+    }
+
+    public function countQuery($query)
+    {
+      $this->bukaDb();
+      $hasil = 0;
+      if ($result=mysqli_query($this->conn ,$query))
+      {
+        $hasil = mysqli_num_rows($result);
+        mysqli_free_result($result);
+      }
       return $hasil;
     }
 
@@ -95,8 +107,8 @@
     }
 
     public function logMeIn($userData) {
-      $_SESSION['loginedUser'] = $userData;
-      $_SESSION['loginedUserDetail'] = $this->getUserDetail();
+      $_SESSION['loginedUser'] = $userData[0];
+      $_SESSION['loginedUserDetail'] = $this->getUserDetail()[0];
     }
 
     public function logMeOut() {
@@ -104,8 +116,15 @@
       $_SESSION['loginedUserDetail'] = null;
     }
 
+    public function updateSessionUser()
+    {
+      $refresh = $this->getDataAsObject("SELECT * FROM login WHERE id=".$_SESSION['loginedUser']->id)[0];
+      $_SESSION['loginedUser'] = $refresh;
+      $_SESSION['loginedUserDetail'] = $this->getUserDetail()[0];
+    }
+
     public function getUserDetail() {
-      $loginedUser = $_SESSION['loginedUser'][0];
+      $loginedUser = $_SESSION['loginedUser'];
       if($loginedUser) {
         $table = strtolower($loginedUser->type);
         $query = "SElECT * FROM $table WHERE email = '$loginedUser->email'";
@@ -176,7 +195,7 @@
 
       $data =  $this->getDataAsObject($query)[0];
       return $data;
-    }
+    }    
   }
   
 ?>

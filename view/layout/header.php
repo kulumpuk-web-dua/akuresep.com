@@ -16,6 +16,7 @@
 
     <!-- Custom fonts for this template -->
     <link href="statics/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="statics/css/magnific-popup.css" rel="stylesheet" type="text/css">
     <link href="statics/css/animate.css" rel="stylesheet">
     <link href="statics/css/style.css" rel="stylesheet">
 
@@ -36,12 +37,18 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+              <li><a href="index.php?c=resep">Resep Masakan</a></li>
+              <li><a href="index.php?c=kategori">Kategori</a></li>
             <?php if (isset($_SESSION['loginedUser'])): ?>
-              <li><a>Selamat datang <?php echo $_SESSION['loginedUserDetail'][0][1] ?>! </a></li>
-              <li><a href="index.php?c=profile">Profil</a></li>
-              <li><a href="index.php?c=myresep&m=tambah">+Tambah Resep</a></li>
-              <li><a href="index.php?c=myresep">My Resep</a></li>
-              <li><a href="index.php?c=auth&m=postLogout">Keluar</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Selamat datang <?php echo $_SESSION['loginedUserDetail']['nama_depan'] ?>! </a>
+                <ul class="dropdown-menu">
+                  <li><a href="index.php?c=profile">Profil</a></li>
+                  <li><a href="index.php?c=myresep&m=tambah">+Tambah Resep</a></li>
+                  <li><a href="index.php?c=myresep">My Resep</a></li>
+                  <li class="divider"></li>
+                  <li><a href="index.php?c=auth&m=postLogout">Keluar</a></li>
+                </ul>
+              </li>
             <?php else: ?>
               <li><a href="index.php?c=auth&m=register">Daftar</a></li>
               <li><a href="index.php?c=auth&m=login">Masuk</a></li> 

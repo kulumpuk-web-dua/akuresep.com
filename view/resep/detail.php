@@ -1,22 +1,22 @@
 <?php
 include('./view/layout/header.php');
+$resep = $data['resep'][0];
+$listKomentar = $data['komentar'];
 ?>
 
     <!-- Page Content -->
 <section class="content-section">
-  <div class="bg-pattern">
+  <div class="bg-pattern" style="background: url(statics/image/<?php echo $resep->gambar_utama ? : "no-image.png"?>) no-repeat center center fixed; background-size: cover;">
   </div>
-      <?php $resep = $data['resep'][0]?>
-      <?php $listKomentar = $data['komentar']?>
-      <div class="container page detail-resep">
-        <div class="box-content">
+      <div class="container page page-2x detail-resep">
+        <div class="box-content detail-resep">
           <div class="detail-container">
-            <div class="detail-image">
+            <div class="detail-image circle">
               <img src="statics/image/<?php echo $resep->gambar_utama ? : "no-image.png"?>"  class="img-responsive" alt="Image">
             </div> 
-            <div class="box-header">
+            <div class="box-header text-center">
               <h1 class="box-title"><?php echo($resep->nama)?></h1>
-              <a href="index.php?c=profile&user=<?php echo $resep->id_pengguna?>" class="author"><?php echo($resep->nama_depan. " " . $resep->nama_belakang)?></a>
+              <a href="index.php?c=user&profile=<?php echo $resep->id_pengguna?>" class="author"> <?php echo($resep->nama_depan. " " . $resep->nama_belakang)?></a>
               <div class="kategori"><a href=""><i class="fa fa-hashtag"></i> <?php echo($resep->nama_kategori)?></a></div>
               <hr>
             </div>
@@ -72,7 +72,7 @@ include('./view/layout/header.php');
                       <?php 
                         foreach ($data['gambar'] as $key => $value) {
                           ?>
-                          <div class="col-md-3"><a href="statics/image/<?php echo $value->gambar ? : "no-image.png"?>" target="blank"><img src="statics/image/<?php echo $value->gambar ? : "no-image.png"?>"  class="img-responsive" alt="Image"></a></div>
+                          <div class="col-md-3"><a class="image-link" href="statics/image/<?php echo $value->gambar ? : "no-image.png"?>" ><img src="statics/image/<?php echo $value->gambar ? : "no-image.png"?>"  class="img-responsive" alt="Image"></a></div>
                           <?php 
                         }
                       ?>
@@ -86,10 +86,11 @@ include('./view/layout/header.php');
                         <h3 class="panel-title">Katakan opini Anda</h3>
                       </div>
                       <div class="panel-body">
-                      <?php if(!$data['user']) {?> 
+                      <?php if(!$_SESSION['loginedUserDetail']) {?> 
                         <blockquote><strong>Mohon maaf silahkan login terlebih dahulu untuk memberikan opini.</strong></blockquote>
                       <?php } else { ?>  
-                        <form action="index.php?c=resep&m=addComment&id=<?php echo($resep->id) ?> " method="POST" role="form">
+                        <form action="index.php?c=resep&m=addComment" method="POST" role="form">
+                            <input type="hidden" name="resep" value="<?php echo $resep->id ?>">
                             <div class="form-group">
                               <textarea name="pesan" id="input" class="form-control" rows="3" required="required"></textarea>
                             </div>
@@ -99,26 +100,33 @@ include('./view/layout/header.php');
                       </div>
                     </div>
                     <hr>
-                    <ul class="list-group list-comment">
-                      
-                      <?php 
-                      if(count($listKomentar) > 0) 
-                        {
-                        foreach ($listKomentar as $key => $koment) {
-                          ?> 
-                            <li>
-                              <div class="author"><?php echo $koment->nama_pengguna ?>
-                              
-                              <small class="pull-right"><?php echo $koment->dibuat_pada  ?></small>
-                              </div>
-                              <p><?php echo $koment->pesan  ?></p>
-                            </li>
-                          <?php 
-                        }
-                      }else {
-                        echo "<center> Tidak Ada Data </center>";
-                      }?> 
-                    </ul>
+                      <?php if (count($listKomentar) > 0): ?>
+                      <div class="komentar">
+                    <div class="row">
+                      <?php foreach ($listKomentar as $key => $komen): ?>
+                        
+                      <div class="col-sm-2">
+                        <div class="thumbnail">
+                          <img class="img-responsive user-photo" src="statics/image/<?php echo $komen->poto_pengguna ? : "no-image.png"?>">
+                        </div><!-- /thumbnail -->
+                      </div><!-- /col-sm-1 -->
+
+                      <div class="col-sm-10">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <strong><a href="index.php?c=user&profil=<?php echo $komen->id_pengguna ?>"><?php echo $komen->nama_pengguna ?></a></strong> <span class="text-muted">commented <?php echo $komen->dibuat_pada ?></span>
+                          </div>
+                          <div class="panel-body">
+                            <?php echo $komen->pesan ?>
+                          </div><!-- /panel-body -->
+                        </div><!-- /panel panel-default -->
+                      </div><!-- /col-sm-5 -->
+                      <?php endforeach ?>
+                    </div>
+                      </div>
+                      <?php else: ?>
+                      <blockquote> Tidak ada diskusi. </blockquote>
+                      <?php endif ?>
 
                   </div>
                 </div>

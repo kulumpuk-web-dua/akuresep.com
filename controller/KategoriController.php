@@ -14,9 +14,16 @@
       $data = [];
       $id_kat = $_GET['id_kategori'];
       $data['kategori'] = $this->getDataAsObject("SELECT * FROM kategori WHERE id=".$id_kat);
-      $data['reseps'] = $this->getDataAsObject("SELECT resep.*, pengguna.nama_depan, pengguna.nama_belakang  ,
+      $query = "SELECT resep.*, pengguna.nama_depan, pengguna.nama_belakang  ,
       (select max(gambar)  from detail_gambar where id_resep = resep.id and utama = '1') as gambar_utama
-      from resep LEFT JOIN pengguna ON pengguna.id=resep.id_pengguna WHERE id_kategori=".$id_kat);
+      from resep LEFT JOIN pengguna ON pengguna.id=resep.id_pengguna WHERE id_kategori=".$id_kat;
+      
+      $data['total'] = $this->countQuery($query);
+
+      $data['paginate'] = paginate($data['total'],'index.php',10);
+
+      $data['reseps'] = $this->getDataAsObject("$query ORDER BY resep.dibuat_pada DESC LIMIT ".$data['paginate']['perpage']." OFFSET ".$data['paginate']['offset']);
+
       echo $this->view('view/kategori/detail.php', $data);
     }
 

@@ -24,7 +24,6 @@ include('./view/layout/header.php');
           </ul>
           <form action="index.php?c=resep&m=search" method="GET" class="form-inline form-search" role="form">
             <input type="hidden" name="c" value="resep">
-            <input type="hidden" name="m" value="search">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-search"></i></span>
               <input type="text" class="form-control " name="search" id="" placeholder="Cari Resep">
@@ -44,7 +43,12 @@ include('./view/layout/header.php');
       <div class="container">
 
         <div class="banner">
-        <a href="index.php?c=resep&m=search"><img src="statics/img/banner-resep-produk-tepung.png" class="img-responsive" alt="Image"></a>
+        <blockquote class="intro">Cooking and baking is both physical and mental therapy
+          <footer>Mary Berry</footer>
+        </blockquote>
+        </div>
+        <div class="banner">
+        <a href="index.php?c=resep&m=search"><img src="statics/img/banner-middle.jpg" class="img-responsive" alt="Image"></a>
         </div>
         <div class="box-content">
         <div class="resep-container">
@@ -54,22 +58,22 @@ include('./view/layout/header.php');
           <div class="row">
               
             <?php foreach ($data['reseps'] as $resep): ?>
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-6">
               <div class="box-resep">
                 <div class="img-resep">
                   <img src="statics/image/<?php echo $resep->gambar_utama ? : "no-image.png"?>" class="img-responsive" alt="Gambar Resep">
                 </div>
                 <div class="desc-resep">
                   <h2 class="title-resep"><a href="index.php?c=resep&m=detail&id=<?php echo $resep->id ?> "><?php echo $resep->nama ?></a></h2>
-                  <p><?php echo $resep->deskripsi ?></p>
-                  <span>Dibuat oleh <a href="index.php?c=profile&user=<?php echo $resep->id_pengguna?>"><?php echo $resep->nama_depan ?></a></span>
+                  <p><?php echo substr(strip_tags($resep->deskripsi),0,100) ?></p>
+                  <span>Dibuat oleh <a href="index.php?c=user&profile=<?php echo $resep->id_pengguna?>"><?php echo $resep->nama_depan ?></a></span>
                 </div>
               </div>
             </div>
             <?php endforeach ?>
           </div>
 
-          <h1><a href="index.php?c=resep&m=search"><blockquote>Lihat Yang Lainnya</blockquote></a></h1>
+          <h1><a href="index.php?c=resep"><blockquote>Lihat Yang Lainnya</blockquote></a></h1>
             <?php else: ?>
               <h1><blockquote>Tidak ada resep masakan.</blockquote></h1>
             <?php endif ?>

@@ -1,5 +1,5 @@
 <!-- Footer -->
-    <footer>
+    <footer class="footer-web">
       <div class="container">
         <ul class="list-inline">
           <li class="list-inline-item">
@@ -27,5 +27,7 @@
     ================================================== -->
     <script src="statics/js/jquery.min.js"></script>
     <script src="statics/js/bootstrap.min.js"></script>
+    <script src="statics/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="statics/js/main.js"></script>
   </body>
 </html>

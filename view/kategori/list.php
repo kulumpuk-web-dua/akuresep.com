@@ -11,11 +11,12 @@ include('./view/layout/header.php');
           <div class="kategori-container">
             <h1 class="box-title">Daftar Kategori</h1>
             <hr>
-            <img src="statics/img/kategori.jpg" class="img-responsive" alt="Kategori">
+            <img src="statics/image/kategori.jpg" class="img-responsive" alt="Kategori">
             <div class="row">
               <?php foreach ($data['kategories'] as $kategori): ?>
               <div class="col-md-4">
                 <div class="kategori-list">
+                  <img src="statics/image/<?php echo $kategori->gambar ? : "no-image.png"?>" width="50" height="50">
                   <a href="index.php?c=kategori&m=detail&id_kategori=<?php echo $kategori->id ?>"><i class="fa fa-hashtag"></i> <?php echo $kategori->nama ?></a>
                 </div>
               </div>
