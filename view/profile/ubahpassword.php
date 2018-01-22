@@ -40,19 +40,19 @@ include('./view/layout/header.php');
                     <div class="col-md-8">
                       <div class="form-group">
                         <label for="">Password Lama</label>
-                        <input type="password" class="form-control" name="old_pass">
+                        <input type="password" class="form-control" name="old_pass" required>
                       </div>
 
                       <hr>
 
                       <div class="form-group">
                         <label for="">Password Baru</label>
-                        <input type="password" class="form-control" name="new_pass">
+                        <input type="password" class="form-control" name="new_pass" required>
                       </div>
 
                       <div class="form-group">
                         <label for="">Verifikasi Password</label>
-                        <input type="password" class="form-control" name="ver_pass">
+                        <input type="password" class="form-control" name="ver_pass" required>
                       </div>
                     </div>
                   </div>

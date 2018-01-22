@@ -16,7 +16,7 @@ include('./view/layout/header.php');
         <div class="form-group">
           <label for="exampleInpuitEmail1">Kategori:</label>
           
-          <select name="kategori" enctype="multipart/form-data" class="form-control" id="">
+          <select name="kategori" enctype="multipart/form-data" class="form-control" id="" required>
             <option value="">Pilih Kategori</option>
             <?php 
               foreach ($data['listKategori'] as $key => $value) {
@@ -30,19 +30,19 @@ include('./view/layout/header.php');
 
         <div class="form-group">
           <label for="exampleInputEmail1">Nama Resep:</label>
-          <input type="text " name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+          <input type="text " name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
           
         </div>
 
         <div class="form-group">
           <label for="exampleInputEmail1">Porsi:</label>
-          <input type="text " name="porsi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+          <input type="number " name="porsi" class="form-control" id="exampleInputEmail1" aria-describedby="" required>
           
         </div>
 
         <div class="form-group">
           <label for="exampleInputEmail1">Durasi:</label>
-          <input type="text " name="durasi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+          <input type="text " name="durasi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
           
         </div>
 
@@ -62,12 +62,12 @@ include('./view/layout/header.php');
         
         <div class="form-group">
           <label for="exampleInputEmail1">Bahan:</label>
-          <textarea name="bahan_bahan" class="form-control" id="" cols="10" rows="10"></textarea>
+          <textarea name="bahan_bahan" class="form-control" id="" cols="10" rows="10" required></textarea>
               
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Langkah:</label>
-          <textarea name="langkah_resep" class="form-control" id="" cols="10" rows="10"></textarea>
+          <textarea name="langkah_resep" class="form-control" id="" cols="10" rows="10" required></textarea>
               
         </div>
 

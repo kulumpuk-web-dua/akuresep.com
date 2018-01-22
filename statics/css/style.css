@@ -439,6 +439,11 @@ blockquote.intro {
   overflow: hidden;
   box-shadow: 0 0 5px 0px #333;
 }
+.detail-container .detail-image.circle {
+  height: 250px;
+  width: 250px;
+  background-position: center;
+}
 .detail-container .box-header {
   padding: 20px;
   /*text-align: center;*/

@@ -34,17 +34,17 @@ include('./view/layout/header.php');
                     <div class="col-md-8">
                       <div class="form-group">
                         <label for="">Nama Depan</label>
-                        <input type="text" class="form-control" name="nama_depan" value="<?php echo $userData['nama_depan'] ?>">
+                        <input type="text" class="form-control" name="nama_depan" value="<?php echo $userData['nama_depan'] ?>" required>
                       </div>
 
                       <div class="form-group">
                         <label for="">Nama Belakang</label>
-                        <input type="text" class="form-control" name="nama_belakang" value="<?php echo $userData['nama_belakang'] ?>">
+                        <input type="text" class="form-control" name="nama_belakang" value="<?php echo $userData['nama_belakang'] ?>" required>
                       </div>
 
                       <div class="form-group">
                         <label for="">Pekerjaan</label>
-                        <input type="text" class="form-control" name="pekerjaan" value="<?php echo $userData['pekerjaan'] ?>">
+                        <input type="text" class="form-control" name="pekerjaan" value="<?php echo $userData['pekerjaan'] ?>" required>
                       </div>
                     </div>
                     <div class="col-md-4">
